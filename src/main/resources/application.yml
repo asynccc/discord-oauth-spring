@@ -1,0 +1,22 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          discord:
+            client-id: <client-id>
+            client-secret: <client-secret>
+            clientAuthenticationMethod: post
+            authorizationGrantType: authorization_code
+            scope:
+              - identify
+              - guilds
+              - email
+            redirect-uri: "{baseUrl}/oauth/discord/callback"
+            clientName: Discord Client
+        provider:
+          discord:
+            authorizationUri: https://discordapp.com/api/oauth2/authorize
+            tokenUri: https://discordapp.com/api/oauth2/token
+            userInfoUri: https://discordapp.com/api/users/@me
+            user-name-attribute: username
